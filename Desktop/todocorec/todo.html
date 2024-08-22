@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <button onclick="addtodo(event)">Add Todo</button>
+    <div>
+
+    </div>
+</body>
+</html>
+<script>
+
+    let todos = []
+    function addtodo(e) {
+        let input = e.target.previousElementSibling
+        // console.log(input);
+        if (input.value.trim()) {
+            let todoObj = {
+                todo: input.value.trim()
+            }
+
+            todos.push(todoObj)
+            
+            
+            todos.forEach((todoObj) => {
+                e.target.nextElementSibling.innerHTML += `<p>${todoObj.todo} <button onclick="grabIndex${1}"></button> </p>`
+            })
+            console.log(todos);
+        } else {
+            alert('input field is mandatory')
+        }
+        
+    }
+</script>
